@@ -5,22 +5,21 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>spring-mvc-todo-app</display-name>
-		
+
 	<servlet>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring-dispatcher-servlet.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<jsp-config>
-		<taglib>
-			<taglib-uri>https://custom/jsp/tlds/mytags</taglib-uri>
-			<taglib-location>/WEB-INF/custom.tld</taglib-location>
-		</taglib>
-	</jsp-config>
+
 
 </web-app>
