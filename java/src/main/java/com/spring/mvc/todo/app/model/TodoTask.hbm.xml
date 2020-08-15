@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.spring.mvc.todo.app.model">
+	<class name="TodoTask" table="TODO_TASK">
+		<id name="id" column="ID">
+			<generator class="native"/>
+		</id>
+		<property name="title" column="TITLE" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="status" column="STATUS" />
+		<property name="createdDate" column="CREATED_DT" />
+		<property name="completionDate" column="COMPLETION_DT" />
+	</class>	
+</hibernate-mapping>

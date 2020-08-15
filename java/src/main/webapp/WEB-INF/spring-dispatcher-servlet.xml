@@ -1,0 +1,48 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+   http://www.springframework.org/schema/mvc 
+   http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+   http://www.springframework.org/schema/tx
+   http://www.springframework.org/schema/tx/spring-tx.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   
+	<mvc:annotation-driven />        
+	
+	<context:component-scan	base-package="com.spring.mvc.todo.app.controller" />
+	<context:component-scan	base-package="com.spring.mvc.todo.app.dao" />
+	<context:component-scan	base-package="com.spring.mvc.todo.app.model" />
+	<context:component-scan	base-package="com.spring.mvc.todo.app.service" />
+
+	<mvc:resources location="/assets/" mapping="/assets/**" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+  
+	<bean id="ViewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521/orcl"/>
+        <property name="username" value="TEST_DB"/>
+        <property name="password" value="TEST_DB"/>
+    </bean>	
+    
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+	</bean>
+
+  	<bean id="todoTaskDao" class="com.spring.mvc.todo.app.dao.TodoTaskDaoImpl">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>   
+</beans>
