@@ -17,4 +17,17 @@ public interface TodoTaskService {
 	 * @return
 	 */
 	public List<TodoTask> getAllTodoTask();
+
+
+	/**
+	 * @param id
+	 * @return
+	 */
+	public TodoTask getTodoTaskById(Long id);
+
+	/**
+	 * @param tt
+	 * @param id
+	 */
+	void updaetTodoTask(TodoTask tt, Long id);
 }

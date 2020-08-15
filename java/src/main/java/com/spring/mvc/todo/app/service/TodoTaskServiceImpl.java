@@ -35,5 +35,25 @@ public class TodoTaskServiceImpl implements TodoTaskService {
 	}
 
 
+	@Override
+	public TodoTask getTodoTaskById(Long id) {
+		return todoTaskDao.getTodoTaskById(id);
+	}
+
+
+	@Override
+	public void updaetTodoTask(TodoTask tt, Long id) {
+		TodoTask todoTask = todoTaskDao.getTodoTaskById(id);
+		if (todoTask != null) {
+			todoTask.setTitle(tt.getTitle());
+			todoTask.setDescription(tt.getDescription());
+			todoTask.setStatus(tt.getStatus());
+			todoTask.setCompletionDate(tt.getCompletionDate());
+			todoTaskDao.updateStudent(todoTask);
+		}
+		
+	}
+
+
 
 }

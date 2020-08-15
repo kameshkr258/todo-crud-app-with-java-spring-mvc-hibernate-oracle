@@ -13,4 +13,8 @@ public interface TodoTaskDao {
 
 	List<TodoTask> getAllTodoTask();
 
+	TodoTask getTodoTaskById(Long id);
+
+	void updateStudent(TodoTask todoTask);
+
 }
