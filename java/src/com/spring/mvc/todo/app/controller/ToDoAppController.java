@@ -46,8 +46,8 @@ public class ToDoAppController {
 	public ModelAndView saveStudent(@Valid TodoTask todoTask, BindingResult result, ModelMap model) {
 		final ModelAndView mv = new ModelAndView();
 
-		student.setCreatedDate(new Date());
-		student.setCompletionDate(new Date());
+		todoTask.setCreatedDate(new Date());
+		todoTask.setStatus("Active");
 		todoTaskService.createTodoTask(todoTask);
 		final List<TodoTask> list = todoTaskService.getAllTodoTask();
 		model.addAttribute("todoTaskList", list);
