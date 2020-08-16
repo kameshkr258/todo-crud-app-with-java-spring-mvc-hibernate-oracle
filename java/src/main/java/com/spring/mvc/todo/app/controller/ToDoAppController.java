@@ -30,7 +30,7 @@ public class ToDoAppController {
 	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
 	public ModelAndView list(ModelMap model) {
 		final ModelAndView mv = new ModelAndView();
-		final List<TodoTask> list = todoTaskService.getAllTodoTask();
+		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
 		mv.setViewName("todo/list");
 		return mv;
@@ -49,8 +49,8 @@ public class ToDoAppController {
 
 		todoTask.setCreatedDate(new Date());
 		todoTask.setStatus("Active");
-		todoTaskService.createTodoTask(todoTask);
-		final List<TodoTask> list = todoTaskService.getAllTodoTask();
+		todoTaskService.create(todoTask);
+		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
 		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " added successfully.");
 		mv.setViewName("todo/list");
@@ -59,7 +59,7 @@ public class ToDoAppController {
 
 	@RequestMapping(value = { "/edit/{id}" }, method = RequestMethod.GET)
 	public String editTodo(@PathVariable Long id, ModelMap model) {
-		final TodoTask todoTask = todoTaskService.getTodoTaskById(id);
+		final TodoTask todoTask = todoTaskService.getTodoById(id);
 		model.addAttribute("todoTask", todoTask);
 		return "todo/edit";
 	}
@@ -68,10 +68,20 @@ public class ToDoAppController {
 	public ModelAndView editTodo(@PathVariable Long id, @Valid TodoTask todoTask, BindingResult result, ModelMap model) {
 		final ModelAndView mv = new ModelAndView();
 
-		todoTaskService.updaetTodoTask(todoTask,id);
-		final List<TodoTask> list = todoTaskService.getAllTodoTask();
+		todoTaskService.update(todoTask,id);
+		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
 		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " updated successfully.");
+		mv.setViewName("todo/list");
+		return mv;
+	}
+	
+
+	@RequestMapping(value = { "/delete/{id}" }, method = RequestMethod.GET)
+	public ModelAndView delete(@PathVariable Long id, ModelMap model) {
+		final ModelAndView mv = new ModelAndView();
+		String title = todoTaskService.delete(id);
+		model.addAttribute("success", "Todo Task " + title + " deleted successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}

@@ -9,12 +9,14 @@ import com.spring.mvc.todo.app.model.TodoTask;
  */
 public interface TodoTaskDao {
 
-	void createTodoTask(TodoTask todoTask);
+	void create(TodoTask todoTask);
 
-	List<TodoTask> getAllTodoTask();
+	List<TodoTask> getAllTodos();
 
-	TodoTask getTodoTaskById(Long id);
+	TodoTask getTodoById(Long id);
 
-	void updateStudent(TodoTask todoTask);
+	void update(TodoTask todoTask);
+	
+	void delete(TodoTask todoTask);
 
 }

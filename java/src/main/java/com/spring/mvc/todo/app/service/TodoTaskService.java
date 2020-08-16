@@ -10,24 +10,29 @@ public interface TodoTaskService {
 	 * @param todoTask
 	 * @return
 	 */
-	public Long createTodoTask(TodoTask todoTask);
+	public Long create(TodoTask todoTask);
 
 	
 	/**
 	 * @return
 	 */
-	public List<TodoTask> getAllTodoTask();
+	public List<TodoTask> getAllTodos();
 
 
 	/**
 	 * @param id
 	 * @return
 	 */
-	public TodoTask getTodoTaskById(Long id);
+	public TodoTask getTodoById(Long id);
 
 	/**
 	 * @param tt
 	 * @param id
 	 */
-	void updaetTodoTask(TodoTask tt, Long id);
+	void update(TodoTask tt, Long id);
+	
+	/**
+	 * @param id
+	 */
+	String delete(Long id);
 }

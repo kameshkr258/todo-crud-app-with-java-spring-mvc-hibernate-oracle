@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.mvc.todo.app.dao.TodoTaskDao;
 import com.spring.mvc.todo.app.model.TodoTask;
@@ -20,8 +19,8 @@ public class TodoTaskServiceImpl implements TodoTaskService {
 	 * @return
 	 */
 	@Override
-	public Long createTodoTask(TodoTask todoTask) {
-		todoTaskDao.createTodoTask(todoTask);
+	public Long create(TodoTask todoTask) {
+		todoTaskDao.create(todoTask);
 		return todoTask.getId();
 	}
 
@@ -30,30 +29,49 @@ public class TodoTaskServiceImpl implements TodoTaskService {
 	 * @return
 	 */
 	@Override
-	public List<TodoTask> getAllTodoTask() {
-		return todoTaskDao.getAllTodoTask();
+	public List<TodoTask> getAllTodos() {
+		return todoTaskDao.getAllTodos();
 	}
 
 
+	/**
+	 *
+	 */
 	@Override
-	public TodoTask getTodoTaskById(Long id) {
-		return todoTaskDao.getTodoTaskById(id);
+	public TodoTask getTodoById(Long id) {
+		return todoTaskDao.getTodoById(id);
 	}
 
 
+	/**
+	 *
+	 */
 	@Override
-	public void updaetTodoTask(TodoTask tt, Long id) {
-		TodoTask todoTask = todoTaskDao.getTodoTaskById(id);
+	public void update(TodoTask tt, Long id) {
+		TodoTask todoTask = todoTaskDao.getTodoById(id);
 		if (todoTask != null) {
 			todoTask.setTitle(tt.getTitle());
 			todoTask.setDescription(tt.getDescription());
 			todoTask.setStatus(tt.getStatus());
 			todoTask.setCompletionDate(tt.getCompletionDate());
-			todoTaskDao.updateStudent(todoTask);
+			todoTaskDao.update(todoTask);
 		}
 		
 	}
 
+
+	/**
+	 *
+	 */
+	@Override
+	public String delete(Long id) {
+		TodoTask todoTask = todoTaskDao.getTodoById(id);
+		String title = todoTask.getTitle();
+		if (todoTask != null) {
+			todoTaskDao.delete(todoTask);
+		}
+		return title;
+	}
 
 
 }
