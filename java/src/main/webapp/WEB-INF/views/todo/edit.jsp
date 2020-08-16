@@ -9,8 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create Todo</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <style>
 .error {
@@ -64,8 +63,7 @@
 			
 			<button type="submit" class="btn btn-primary">Submit</button>
 
-			<a class="btn btn-secondary" href="<c:url value='/list' />">List
-				of All Todos</a>
+			<a class="btn btn-secondary" href="<c:url value='/list' />">Todo List</a>
 
 		</form:form>
 	</div>

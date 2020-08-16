@@ -1,13 +1,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Todo Task List</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <style type="text/css">
 tr:first-child {
@@ -42,8 +42,8 @@ tr:first-child {
 						<td>${todoTask.title}</td>
 						<td>${todoTask.description}</td>
 						<td>${todoTask.status}</td>
-						<td>${todoTask.createdDate}</td>
-						<td>${todoTask.completionDate}</td>
+						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.createdDate}"/> </td>
+						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.completionDate}"/> </td>
 						<td><a href="<c:url value='/edit/${todoTask.id}' />">Update</a></td>
 						<td><a href="<c:url value='/delete/${todoTask.id}' />">Delete</a></td>
 					</tr>
