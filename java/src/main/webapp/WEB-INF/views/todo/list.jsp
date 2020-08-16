@@ -18,7 +18,7 @@ tr:first-child {
 </head>
 <body>
 	<div class="container">
-		<h2>All Todo Tasks</h2>
+		<h2>All Todos</h2>
 		<c:if test="${not empty success}">
 			<div class="alert alert-success" role="alert">${success}</div>
 		</c:if>
@@ -52,6 +52,7 @@ tr:first-child {
 		<hr />
 		<div class="form-group">
 			<a class="btn btn-secondary" href="<c:url value='/create' />">Create Todo</a>
+			<a class="btn btn-secondary" href="<c:url value='/list' />">Refresh Page</a>
 		</div>
 	</div>
 </body>
