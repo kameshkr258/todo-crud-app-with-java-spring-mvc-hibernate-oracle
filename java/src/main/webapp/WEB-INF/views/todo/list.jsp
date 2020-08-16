@@ -19,8 +19,8 @@ tr:first-child {
 <body>
 	<div class="container">
 		<h2>All Todo Tasks</h2>
-		<c:if test="${not empty success}">
-			<div class="alert alert-success" role="alert">${success}</div>
+		<c:if test="${not empty message}">
+			<div class="alert alert-success" role="alert">${message}</div>
 		</c:if>
 
 		<hr />

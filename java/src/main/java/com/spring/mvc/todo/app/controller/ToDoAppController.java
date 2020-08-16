@@ -52,7 +52,7 @@ public class ToDoAppController {
 		todoTaskService.create(todoTask);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " added successfully.");
+		model.addAttribute("message", "Todo Task " + todoTask.getTitle() + " added successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}
@@ -71,7 +71,7 @@ public class ToDoAppController {
 		todoTaskService.update(todoTask,id);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " updated successfully.");
+		model.addAttribute("message", "Todo Task " + todoTask.getTitle() + " updated successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}
@@ -81,7 +81,7 @@ public class ToDoAppController {
 	public ModelAndView delete(@PathVariable Long id, ModelMap model) {
 		final ModelAndView mv = new ModelAndView();
 		String title = todoTaskService.delete(id);
-		model.addAttribute("success", "Todo Task " + title + " deleted successfully.");
+		model.addAttribute("message", "Todo Task " + title + " deleted successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}
