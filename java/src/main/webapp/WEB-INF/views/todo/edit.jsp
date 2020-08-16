@@ -21,7 +21,7 @@
 
 <body>
 	<div class="container">
-		<h2>Create Todo</h2>
+		<h2>Update <b>${todoTask.title}</b> Todo</h2>
 
 		<c:if test="${not empty error}">
 			<div class="alert alert-danger" role="alert">${error}</div>

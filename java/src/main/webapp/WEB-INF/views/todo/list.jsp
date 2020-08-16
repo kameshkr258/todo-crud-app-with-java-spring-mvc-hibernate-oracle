@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Todo Task List</title>
+<title>Todo List</title>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -18,7 +18,7 @@ tr:first-child {
 </head>
 <body>
 	<div class="container">
-		<h2>All Todo Tasks</h2>
+		<h2>Todo List</h2>
 		<c:if test="${not empty message}">
 			<div class="alert alert-success" role="alert">${message}</div>
 		</c:if>
@@ -52,6 +52,7 @@ tr:first-child {
 		<hr />
 		<div class="form-group">
 			<a class="btn btn-secondary" href="<c:url value='/create' />">Create Todo</a>
+			<a class="btn btn-secondary" href="<c:url value='/list' />">Refresh Page</a>
 		</div>
 	</div>
 </body>
