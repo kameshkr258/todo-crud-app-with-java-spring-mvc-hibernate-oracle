@@ -44,7 +44,16 @@
 			
 			<div class="form-group">
 				<label for="Status">Status</label>
-				<form:input path="status" id="status" cssClass="form-control" />
+				<form:select path="status" id="status" cssClass="form-control" >
+					<form:option value="Active">Draft</form:option>
+					<form:option value="Active">Creating</form:option>
+					<form:option value="Active">Queued</form:option>
+					<form:option value="Active">Running</form:option>
+					<form:option value="Active">Aborting</form:option>
+					<form:option value="Active">Aborted</form:option>
+					<form:option value="Active">Failed</form:option>
+					<form:option value="Active">Completed</form:option>
+				</form:select> 
 			</div>
 
 			<div class="form-group">

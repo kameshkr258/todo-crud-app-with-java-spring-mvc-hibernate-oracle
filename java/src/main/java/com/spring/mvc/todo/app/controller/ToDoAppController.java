@@ -48,7 +48,6 @@ public class ToDoAppController {
 		final ModelAndView mv = new ModelAndView();
 
 		todoTask.setCreatedDate(new Date());
-		todoTask.setStatus("Active");
 		todoTaskService.create(todoTask);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
