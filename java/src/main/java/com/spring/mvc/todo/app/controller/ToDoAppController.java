@@ -57,21 +57,21 @@ public class ToDoAppController {
 		return mv;
 	}
 
-	@RequestMapping(value = { "/edit-{id}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/edit/{id}" }, method = RequestMethod.GET)
 	public String editTodo(@PathVariable Long id, ModelMap model) {
 		final TodoTask todoTask = todoTaskService.getTodoTaskById(id);
 		model.addAttribute("todoTask", todoTask);
 		return "todo/edit";
 	}
 
-	@RequestMapping(value = { "/edit-{id}" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/edit/{id}" }, method = RequestMethod.POST)
 	public ModelAndView editTodo(@PathVariable Long id, @Valid TodoTask todoTask, BindingResult result, ModelMap model) {
 		final ModelAndView mv = new ModelAndView();
 
 		todoTaskService.updaetTodoTask(todoTask,id);
 		final List<TodoTask> list = todoTaskService.getAllTodoTask();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " added successfully.");
+		model.addAttribute("success", "Todo Task " + todoTask.getTitle() + " updated successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}

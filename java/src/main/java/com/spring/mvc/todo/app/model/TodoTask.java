@@ -2,6 +2,8 @@ package com.spring.mvc.todo.app.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * @author kameshkr258
  *
@@ -27,10 +29,12 @@ public class TodoTask {
 	/**
 	 * createdDate
 	 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date createdDate;
 	/**
 	 * completionDate
 	 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date completionDate;
 
 	/**

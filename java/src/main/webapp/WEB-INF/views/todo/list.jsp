@@ -44,8 +44,8 @@ tr:first-child {
 						<td>${todoTask.status}</td>
 						<td>${todoTask.createdDate}</td>
 						<td>${todoTask.completionDate}</td>
-						<td><a href="<c:url value='/edit-${todoTask.id}' />">Update</a></td>
-						<td><a href="<c:url value='/delete-${todoTask.id}' />">Delete</a></td>
+						<td><a href="<c:url value='/edit/${todoTask.id}' />">Update</a></td>
+						<td><a href="<c:url value='/delete/${todoTask.id}' />">Delete</a></td>
 					</tr>
 				</c:forEach>
 		</table>

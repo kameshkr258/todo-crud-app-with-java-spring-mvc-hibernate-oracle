@@ -48,7 +48,7 @@
 			</div>
 			<hr />
 			
-			<button type="submit" class="btn btn-primary">Create</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
 
 			<a class="btn btn-secondary" href="<c:url value='/list' />">List
 				of All Todos</a>

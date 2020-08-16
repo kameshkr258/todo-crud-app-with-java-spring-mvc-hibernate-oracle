@@ -5,7 +5,9 @@
 <hibernate-mapping package="com.spring.mvc.todo.app.model">
 	<class name="TodoTask" table="TODO_TASK">
 		<id name="id" column="ID">
-			<generator class="native"/>
+			<generator class="sequence">
+            	<param name="sequence">TODO_TASK_SEQ</param>
+          	</generator>        
 		</id>
 		<property name="title" column="TITLE" />
 		<property name="description" column="DESCRIPTION" />
