@@ -48,11 +48,10 @@ public class ToDoAppController {
 		final ModelAndView mv = new ModelAndView();
 
 		todoTask.setCreatedDate(new Date());
-		todoTask.setStatus("Active");
 		todoTaskService.create(todoTask);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo <b>" + todoTask.getTitle() + "</b> added successfully.");
+		model.addAttribute("message", "Todo <b>" + todoTask.getTitle() + "</b> added successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}
@@ -71,7 +70,7 @@ public class ToDoAppController {
 		todoTaskService.update(todoTask,id);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo <b>" + todoTask.getTitle() + "</b> updated successfully.");
+		model.addAttribute("message", "Todo <b>" + todoTask.getTitle() + "</b> updated successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}
@@ -83,7 +82,7 @@ public class ToDoAppController {
 		String title = todoTaskService.delete(id);
 		final List<TodoTask> list = todoTaskService.getAllTodos();
 		model.addAttribute("todoTaskList", list);
-		model.addAttribute("success", "Todo <b>" + title + "</b> deleted successfully.");
+		model.addAttribute("message", "Todo <b>" + title + "</b> deleted successfully.");
 		mv.setViewName("todo/list");
 		return mv;
 	}

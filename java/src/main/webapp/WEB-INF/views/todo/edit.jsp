@@ -7,10 +7,9 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Create Todo</title>
+<title>Update Todo</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 <style>
 .error {
@@ -44,7 +43,16 @@
 			
 			<div class="form-group">
 				<label for="Status">Status</label>
-				<form:input path="status" id="status" cssClass="form-control" />
+				<form:select path="status" id="status" cssClass="form-control" >
+					<form:option value="Active">Draft</form:option>
+					<form:option value="Active">Creating</form:option>
+					<form:option value="Active">Queued</form:option>
+					<form:option value="Active">Running</form:option>
+					<form:option value="Active">Aborting</form:option>
+					<form:option value="Active">Aborted</form:option>
+					<form:option value="Active">Failed</form:option>
+					<form:option value="Active">Completed</form:option>
+				</form:select> 
 			</div>
 
 			<div class="form-group">
@@ -55,8 +63,7 @@
 			
 			<button type="submit" class="btn btn-primary">Submit</button>
 
-			<a class="btn btn-secondary" href="<c:url value='/list' />">List
-				of All Todos</a>
+			<a class="btn btn-secondary" href="<c:url value='/list' />">Todo List</a>
 
 		</form:form>
 	</div>
