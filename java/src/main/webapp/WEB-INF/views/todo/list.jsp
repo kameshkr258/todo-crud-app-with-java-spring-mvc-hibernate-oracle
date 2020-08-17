@@ -3,19 +3,9 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Todo List</title>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<jsp:include page="../fragments/header.jsp" />
 
-<style type="text/css">
-tr:first-child {
-	font-weignt: bold;
-	background-color: #c6c9c4
-}
-</style>
-</head>
 <body>
 	<div class="container">
 		<h2>Todo List</h2>
@@ -24,10 +14,10 @@ tr:first-child {
 		</c:if>
 
 		<hr />
-		<table class="table">
+		<table id="todoListTable" class="table">
 			<thead class="thead-dark">
 				<tr>
-					<td>Todo Id</td>
+					<td>Id</td>
 					<td>Title</td>
 					<td>Description</td>
 					<td>Status</td>
@@ -39,8 +29,10 @@ tr:first-child {
 				<c:forEach items="${todoTaskList}" var="todoTask">
 					<tr>
 						<td>${todoTask.id}</td>
-						<td>${todoTask.title}</td>
-						<td>${todoTask.description}</td>
+						<td class="title">${todoTask.title}</td>
+						<td class="description">
+							<textarea id="descriptionArea" name="descriptionArea" rows="1" cols="40" disabled="disabled">${todoTask.description}</textarea>
+						</td>
 						<td>${todoTask.status}</td>
 						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.createdDate}"/> </td>
 						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.completionDate}"/> </td>
@@ -53,7 +45,11 @@ tr:first-child {
 		<div class="form-group">
 			<a class="btn btn-secondary" href="<c:url value='/create' />">Create Todo</a>
 			<a class="btn btn-secondary" href="<c:url value='/list' />">Refresh Page</a>
+			<a class="btn btn-secondary" href="<c:url value='/deleteByStatus/Completed' />">Delete Completed</a>
 		</div>
 	</div>
 </body>
+
+<jsp:include page="../fragments/footer.jsp" />
+
 </html>
