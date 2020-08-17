@@ -19,4 +19,6 @@ public interface TodoTaskDao {
 	
 	void delete(TodoTask todoTask);
 
+	int deleteByStatus(String status);
+
 }

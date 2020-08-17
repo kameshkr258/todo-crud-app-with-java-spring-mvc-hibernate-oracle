@@ -35,4 +35,9 @@ public interface TodoTaskService {
 	 * @param id
 	 */
 	String delete(Long id);
+	
+	/**
+	 * @param status
+	 */
+	int deleteByStatus(String status);
 }

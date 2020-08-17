@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.spring.mvc.todo.app.dao.TodoTaskDao;
 import com.spring.mvc.todo.app.model.TodoTask;
@@ -71,6 +72,16 @@ public class TodoTaskServiceImpl implements TodoTaskService {
 			todoTaskDao.delete(todoTask);
 		}
 		return title;
+	}
+
+
+	@Override
+	public int deleteByStatus(String status) {
+		int result = 0;
+		if(!StringUtils.isEmpty(status)) {
+			result = todoTaskDao.deleteByStatus(status);
+		}
+		return result;
 	}
 
 
