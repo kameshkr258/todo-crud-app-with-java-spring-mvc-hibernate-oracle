@@ -28,7 +28,7 @@
 	background: none;
 }
 
-tr:first-child {
+thead tr:first-child {
 	font-weight: bold;
 	background-color: #c6c9c4;
 }

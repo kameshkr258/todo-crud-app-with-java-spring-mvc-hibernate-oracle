@@ -26,6 +26,8 @@
 					<td>Update</td>
 					<td>Delete</td>
 				</tr>
+			</thead>
+			<tbody>
 				<c:forEach items="${todoTaskList}" var="todoTask">
 					<tr>
 						<td>${todoTask.id}</td>
@@ -40,6 +42,7 @@
 						<td><a href="<c:url value='/delete/${todoTask.id}' />">Delete</a></td>
 					</tr>
 				</c:forEach>
+			</tbody>
 		</table>
 		<hr />
 		<div class="form-group">
