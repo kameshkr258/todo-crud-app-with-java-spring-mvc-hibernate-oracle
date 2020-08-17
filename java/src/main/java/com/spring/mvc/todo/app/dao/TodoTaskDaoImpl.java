@@ -2,6 +2,7 @@ package com.spring.mvc.todo.app.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -32,21 +33,30 @@ public class TodoTaskDaoImpl implements TodoTaskDao {
 	 */
 	@Override
 	public List<TodoTask> getAllTodos() {
-		beginTransaction();
-		@SuppressWarnings("unchecked")
-		List<TodoTask> todoTaskList = (List<TodoTask>) getSession().createCriteria(TodoTask.class).list();
-		commitTransaction();
-		return todoTaskList;
+		try {
+			beginTransaction();
+			@SuppressWarnings("unchecked")
+			List<TodoTask> todoTaskList = (List<TodoTask>) getSession().createCriteria(TodoTask.class).list();
+			commitTransaction();
+			return todoTaskList;
+		} catch (Throwable t) {
+			throw t;
+		}
 	}
-	
+
 	/**
 	 *
 	 */
 	@Override
 	public void create(TodoTask todoTask) {
-		beginTransaction();
-		getSession().persist(todoTask);
-		commitTransaction();
+		try {
+			beginTransaction();
+			getSession().persist(todoTask);
+			commitTransaction();
+		} catch (Throwable t) {
+			rollbackTransaction();
+			throw t;
+		}
 	}
 
 	/**
@@ -54,31 +64,65 @@ public class TodoTaskDaoImpl implements TodoTaskDao {
 	 */
 	@Override
 	public TodoTask getTodoById(Long id) {
-		beginTransaction();
-		TodoTask todoTask  = (TodoTask) getSession().get(TodoTask.class, id);
-		commitTransaction();
-		return todoTask;
+		try {
+			beginTransaction();
+			TodoTask todoTask = (TodoTask) getSession().get(TodoTask.class, id);
+			commitTransaction();
+			return todoTask;
+		} catch (Throwable t) {
+			throw t;
+		}
 	}
-	
+
 	/**
 	 *
 	 */
 	@Override
 	public void update(TodoTask todoTask) {
-		beginTransaction();
-		getSession().update(todoTask);
-		commitTransaction();
+		try {
+			beginTransaction();
+			getSession().update(todoTask);
+			commitTransaction();
+		} catch (Throwable t) {
+			rollbackTransaction();
+			throw t;
+		}
 	}
-	
+
 	/**
 	 *
 	 */
 	@Override
 	public void delete(TodoTask todoTask) {
-		beginTransaction();
-		getSession().delete(todoTask);
-		commitTransaction();
+		try {
+			beginTransaction();
+			getSession().delete(todoTask);
+			commitTransaction();
+		} catch (Throwable t) {
+			rollbackTransaction();
+			throw t;
+		}
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public int deleteByStatus(String status) {
+		String hql = "DELETE FROM TodoTask WHERE STATUS = :status";
+		int result;
+		try {
+			beginTransaction();
+			Query query = getSession().createQuery(hql);
+			query.setString("status", status);
+			result = query.executeUpdate();
+			commitTransaction();
+		} catch (Throwable t) {
+			rollbackTransaction();
+			throw t;
+		}
 		
+		return result;
 	}
 
 	/**
@@ -87,18 +131,26 @@ public class TodoTaskDaoImpl implements TodoTaskDao {
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
+
 	/**
 	 * @return
 	 */
 	public Transaction beginTransaction() {
 		return getSession().beginTransaction();
 	}
-	
+
 	/**
 	 * 
 	 */
 	public void commitTransaction() {
 		getSession().getTransaction().commit();
+	}
+
+	/**
+	 * 
+	 */
+	public void rollbackTransaction() {
+		getSession().getTransaction().rollback();
 	}
 
 }
