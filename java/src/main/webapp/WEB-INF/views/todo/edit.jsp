@@ -34,30 +34,31 @@
 			<div class="form-group">
 				<label for="Title">Title</label>
 				<form:input path="title" id="title" cssClass="form-control" />
+				<form:errors path="title" cssClass="error" />
 			</div>
 
 			<div class="form-group">
 				<label for="Description">Description</label>
 				<form:input path="description" id="description" cssClass="form-control" />
+				<form:errors path="description" cssClass="error" />
 			</div>
 			
 			<div class="form-group">
 				<label for="Status">Status</label>
-				<form:select path="status" id="status" cssClass="form-control" >
-					<form:option value="Active">Draft</form:option>
-					<form:option value="Active">Creating</form:option>
-					<form:option value="Active">Queued</form:option>
-					<form:option value="Active">Running</form:option>
-					<form:option value="Active">Aborting</form:option>
-					<form:option value="Active">Aborted</form:option>
-					<form:option value="Active">Failed</form:option>
-					<form:option value="Active">Completed</form:option>
-				</form:select> 
+				<form:select path="status" id="status" cssClass="form-control">
+					<option value="" >--Select--</option>
+					<c:forEach var="record" items="${todoStatusList}">
+					${status}${record}${status == record}
+						<option value="${record}" <c:if test="${status == record}">selected</c:if>>${record}</option>
+					</c:forEach>
+				</form:select>
+				<form:errors path="status" cssClass="error" />
 			</div>
 
 			<div class="form-group">
 				<label for="Completion Date">Completion Date</label>
 				<form:input path="completionDate" type="date" id="completionDate" cssClass="form-control" />
+				<form:errors path="completionDate" cssClass="error" />
 			</div>
 			<hr />
 			
