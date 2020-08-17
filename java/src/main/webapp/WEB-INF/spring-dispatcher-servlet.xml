@@ -20,7 +20,6 @@
 	<context:component-scan	base-package="com.spring.mvc.todo.app.model" />
 	<context:component-scan	base-package="com.spring.mvc.todo.app.service" />
 
-	<mvc:resources location="/assets/" mapping="/assets/**" />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
   
 	<bean id="ViewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
