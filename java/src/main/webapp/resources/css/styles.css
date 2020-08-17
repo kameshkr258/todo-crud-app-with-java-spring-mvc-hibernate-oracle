@@ -1,0 +1,89 @@
+#todoListTable .title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 200px !important;
+}
+
+#todoListTable .title:hover {
+	white-space: normal;
+	word-break: break-all;
+	overflow: visible;
+}
+
+.form-group #description {
+	width: 100%;
+}
+
+.container {
+	padding-top: 20px;
+}
+
+*:focus {
+	outline: none;
+}
+
+#todoListTable #descriptionArea {
+	border: 0;
+	background: none;
+}
+
+tr:first-child {
+	font-weight: bold;
+	background-color: #c6c9c4;
+}
+
+#aboutDev h1 {
+	font-size: 50px;
+	word-break: break-all;
+}
+
+#aboutDev .column {
+	float: left;
+	width: 33%;
+}
+
+#aboutDev .row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#aboutDev .content {
+	background-color: white;
+	padding: 10px;
+}
+
+@media screen and (max-width: 900px) {
+	#aboutDev .column {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#aboutDev .column {
+		width: 100%;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #048FC5;
+}
+
+#aboutDevHref {
+	margin-left: 10px;
+}
+
+#aboutDevContent {
+	float: right;
+}
+
+.error {
+	color: #ff0000;
+}
+
+.btn-secondary {
+	background-color: #048FC5;
+	border-color: #048FC5;
+}

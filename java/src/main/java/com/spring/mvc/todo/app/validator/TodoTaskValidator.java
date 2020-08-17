@@ -37,9 +37,13 @@ public class TodoTaskValidator extends BaseValidator {
 
 		if (StringUtils.isEmpty(title)) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "EMPTY_TITLE","Title can not be empty.");
+		} else if(title.length() > 256 ) {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "INVALID_TITLE_LENGTH","Title length should be less than or equal to 256 characters.");
 		}
 		if (StringUtils.isEmpty(status)) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "status", "EMPTY_STATUS","Please select status.");
+		} else if(title.length() > 10 ) {
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "status", "INVALID_STATUS_LENGTH","Status length should be less than or equal to 10 characters.");
 		}
 		if (StringUtils.isEmpty(completionDate)) {
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "completionDate", "EMPTY_DATE","Completion date can not be empty.");

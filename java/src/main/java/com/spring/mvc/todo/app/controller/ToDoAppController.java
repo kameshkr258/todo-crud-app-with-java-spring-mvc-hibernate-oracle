@@ -113,6 +113,17 @@ public class ToDoAppController  extends BaseController<TodoTask> {
 		return mv;
 	}
 	
+	@RequestMapping(value = { "/deleteByStatus/{status}" }, method = RequestMethod.GET)
+	public ModelAndView deleteByStatus(@PathVariable String status, ModelMap model) {
+		final ModelAndView mv = new ModelAndView();
+		int result = todoTaskService.deleteByStatus(status);
+		final List<TodoTask> list = todoTaskService.getAllTodos();
+		model.addAttribute("todoTaskList", list);
+		model.addAttribute("message", "<b>"+result+"</b> To-do with <b>"+status+"</b> status deleted.");
+		mv.setViewName("todo/list");
+		return mv;
+	}
+	
 	/**
 	 * @return
 	 */
