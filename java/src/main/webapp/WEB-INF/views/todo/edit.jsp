@@ -48,8 +48,7 @@
 				<form:select path="status" id="status" cssClass="form-control">
 					<option value="" >--Select--</option>
 					<c:forEach var="record" items="${todoStatusList}">
-					${status}${record}${status == record}
-						<option value="${record}" <c:if test="${status == record}">selected</c:if>>${record}</option>
+						<option value="${record}" <c:if test="${todoTask.status == record}">selected</c:if>>${record}</option>
 					</c:forEach>
 				</form:select>
 				<form:errors path="status" cssClass="error" />

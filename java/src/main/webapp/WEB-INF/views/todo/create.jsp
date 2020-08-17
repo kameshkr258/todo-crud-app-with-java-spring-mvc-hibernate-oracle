@@ -46,9 +46,9 @@
 			<div class="form-group">
 				<label for="Status">Status</label>
 				<form:select path="status" id="status" cssClass="form-control">
-					<form:option value="" >Select Status</form:option>
+					<form:option value="" >--Select--</form:option>
 					<c:forEach var="record" items="${todoStatusList}">
-						<form:option <c:if test="${status == record.value}">selected</c:if> value="${record.value}">${record.value}</form:option>
+						<option value="${record}" <c:if test="${todoTask.status == record}">selected</c:if>>${record}</option>
 					</c:forEach>
 				</form:select>
 				<form:errors path="status" cssClass="error" />
