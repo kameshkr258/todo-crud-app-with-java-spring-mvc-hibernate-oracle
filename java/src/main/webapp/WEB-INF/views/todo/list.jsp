@@ -28,21 +28,31 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${todoTaskList}" var="todoTask">
-					<tr>
-						<td>${todoTask.id}</td>
-						<td class="title">${todoTask.title}</td>
-						<td class="description">
-							<textarea id="descriptionArea" name="descriptionArea" rows="1" cols="40" disabled="disabled">${todoTask.description}</textarea>
-						</td>
-						<td>${todoTask.status}</td>
-						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.createdDate}"/> </td>
-						<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.completionDate}"/> </td>
-						<td><a href="<c:url value='/edit/${todoTask.id}' />">Update</a></td>
-						<td><a href="<c:url value='/delete/${todoTask.id}' />">Delete</a></td>
-					</tr>
-				</c:forEach>
+				<c:choose>
+					<c:when test="${todoTaskList.size() > 0 }">
+						<c:forEach items="${todoTaskList}" var="todoTask">
+							<tr>
+								<td>${todoTask.id}</td>
+								<td class="title">${todoTask.title}</td>
+								<td class="description">
+									<textarea id="descriptionArea" name="descriptionArea" rows="1" cols="35" disabled="disabled">${todoTask.description}</textarea>
+								</td>
+								<td>${todoTask.status}</td>
+								<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.createdDate}"/> </td>
+								<td><fmt:formatDate pattern = "dd-MMM-yyyy" value = "${todoTask.completionDate}"/> </td>
+								<td><a href="<c:url value='/edit/${todoTask.id}' />">Update</a></td>
+								<td><a href="<c:url value='/delete/${todoTask.id}' />">Delete</a></td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr><td colspan="8">No To-do found. <a href="<c:url value= '/create' />">Lets create some </a></td></tr>				
+					</c:otherwise>
+				</c:choose>
 			</tbody>
+			<tfoot>
+				<tr><td colspan="8">${todoTaskList.size()} To-do Found.</td></tr>
+			</tfoot>
 		</table>
 		<hr />
 		<div class="form-group">

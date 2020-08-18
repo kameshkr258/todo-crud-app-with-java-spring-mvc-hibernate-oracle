@@ -7,7 +7,7 @@
 
 #todoListTable .title:hover {
 	white-space: normal;
-	word-break: break-all;
+	word-break: break-word;
 	overflow: visible;
 }
 
@@ -28,9 +28,10 @@
 	background: none;
 }
 
-thead tr:first-child {
+thead tr, tfoot tr {
 	font-weight: bold;
-	background-color: #c6c9c4;
+	background-color: #048FC5;
+	color: white;
 }
 
 #aboutDev h1 {
@@ -86,4 +87,8 @@ a {
 .btn-secondary {
 	background-color: #048FC5;
 	border-color: #048FC5;
+}
+
+tfoot tr {
+	text-align: right;
 }
