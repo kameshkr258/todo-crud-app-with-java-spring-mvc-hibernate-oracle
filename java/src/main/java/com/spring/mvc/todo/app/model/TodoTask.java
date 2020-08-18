@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * @author kameshkr258
+ * @author Kameshkr258
  *
  */
 public class TodoTask {
@@ -47,7 +47,7 @@ public class TodoTask {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -61,7 +61,7 @@ public class TodoTask {
 	/**
 	 * @param title the title to set
 	 */
-	public void setTitle(String title) {
+	public void setTitle(final String title) {
 		this.title = title;
 	}
 
@@ -75,7 +75,7 @@ public class TodoTask {
 	/**
 	 * @param description the description to set
 	 */
-	public void setDescription(String description) {
+	public void setDescription(final String description) {
 		this.description = description;
 	}
 
@@ -89,7 +89,7 @@ public class TodoTask {
 	/**
 	 * @param status the status to set
 	 */
-	public void setStatus(String status) {
+	public void setStatus(final String status) {
 		this.status = status;
 	}
 
@@ -103,7 +103,7 @@ public class TodoTask {
 	/**
 	 * @param createdDate the createdDate to set
 	 */
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(final Date createdDate) {
 		this.createdDate = createdDate;
 	}
 
@@ -117,7 +117,7 @@ public class TodoTask {
 	/**
 	 * @param completionDate the completionDate to set
 	 */
-	public void setCompletionDate(Date completionDate) {
+	public void setCompletionDate(final Date completionDate) {
 		this.completionDate = completionDate;
 	}
 }

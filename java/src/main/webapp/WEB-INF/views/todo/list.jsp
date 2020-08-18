@@ -28,9 +28,14 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:set var="completedTodoCount" value="0"></c:set>
 				<c:choose>
 					<c:when test="${todoTaskList.size() > 0 }">
 						<c:forEach items="${todoTaskList}" var="todoTask">
+							<c:if test="${todoTask.status == 'Completed'}">
+								<c:set var="completedTodoCount" value="${completedTodoCount+1}"></c:set>
+							</c:if>
+							
 							<tr>
 								<td>${todoTask.id}</td>
 								<td class="title">${todoTask.title}</td>
@@ -51,7 +56,7 @@
 				</c:choose>
 			</tbody>
 			<tfoot>
-				<tr><td colspan="8">${todoTaskList.size()} To-do Found.</td></tr>
+				<tr><td colspan="8">Completed ${completedTodoCount} out of ${todoTaskList.size()} todo.</td></tr>
 			</tfoot>
 		</table>
 		<hr />

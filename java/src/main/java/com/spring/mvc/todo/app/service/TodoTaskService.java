@@ -4,38 +4,42 @@ import java.util.List;
 
 import com.spring.mvc.todo.app.model.TodoTask;
 
+/**
+ * @author Kameshkr258
+ *
+ */
 public interface TodoTaskService {
 
 	/**
 	 * @param todoTask
 	 * @return
 	 */
-	public Long create(TodoTask todoTask);
+	Long create(TodoTask todoTask);
 
-	
+
 	/**
 	 * @return
 	 */
-	public List<TodoTask> getAllTodos();
+	List<TodoTask> getAllTodos();
 
 
 	/**
 	 * @param id
 	 * @return
 	 */
-	public TodoTask getTodoById(Long id);
+	TodoTask getTodoById(Long id);
 
 	/**
 	 * @param tt
 	 * @param id
 	 */
 	void update(TodoTask tt, Long id);
-	
+
 	/**
 	 * @param id
 	 */
 	String delete(Long id);
-	
+
 	/**
 	 * @param status
 	 */

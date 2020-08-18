@@ -10,29 +10,35 @@ import org.springframework.validation.ValidationUtils;
 import com.spring.mvc.todo.app.model.TodoTask;
 
 
+
 /**
- * 
+ * @author Kameshkr258
+ *
  */
 @Component
 public class TodoTaskValidator extends BaseValidator {
 
+
 	/**
-	 *
+	 * @param arg0
+	 * @return
 	 */
 	@Override
 	public boolean supports(final Class<?> arg0) {
 		return TodoTask.class.isAssignableFrom(arg0);
 	}
 
+
 	/**
-	 *
+	 * @param target
+	 * @param errors
 	 */
 	@Override
 	public void validate(final Object target, final Errors errors) {
 		final TodoTask todoTask = (TodoTask) target;
-		String title = todoTask.getTitle();
-		String status = todoTask.getStatus();
-		Date completionDate = todoTask.getCompletionDate();
+		final String title = todoTask.getTitle();
+		final String status = todoTask.getStatus();
+		final Date completionDate = todoTask.getCompletionDate();
 
 
 		if (StringUtils.isEmpty(title)) {

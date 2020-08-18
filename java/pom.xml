@@ -9,8 +9,8 @@
   <version>0.0.0.0</version>
   <packaging>war</packaging>
 
-  <name>todo-app Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
+  <name>To-Do Spring-MVC</name>
+
   <url>http://www.example.com</url>
 
 	<properties>

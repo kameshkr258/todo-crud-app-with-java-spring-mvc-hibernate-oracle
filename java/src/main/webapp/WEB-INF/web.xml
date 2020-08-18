@@ -4,7 +4,7 @@
 	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	<display-name>spring-mvc-todo-app</display-name>
+	<display-name>To-Do Spring-MVC</display-name>
 
 	<servlet>
 		<servlet-name>spring-dispatcher</servlet-name>
