@@ -4,9 +4,18 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-		<script type="text/javascript" src="https://github-profile.com/dist/gh-profile-card.min.js"></script>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<spring:url value="/resources/javascript/linkedin-profile.js" var="linkedInJS" />
+		<spring:url value="/resources/javascript/gh-profile-card.min.js" var="githubJS" />
+		<spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
+
+		<script type="text/javascript" src="${linkedInJS}"></script>
+		<script type="text/javascript" src="${githubJS}"></script>
+		<link href="${bootstrapCss}" rel="stylesheet" />
+		
+		
+		<spring:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
+		<link href="${bootstrapCss}" rel="stylesheet" />
 		<spring:url value="/resources/css/styles.css" var="css" />
 		<link href="${css}" rel="stylesheet" />
 	</head>
