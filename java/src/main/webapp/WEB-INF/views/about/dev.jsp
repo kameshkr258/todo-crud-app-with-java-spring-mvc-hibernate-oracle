@@ -33,11 +33,6 @@
 			<div class="row">
 			  <div class="column">
 			    <div class="content">
-					<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="kameshkr258"><a class="LI-simple-link" href='https://in.linkedin.com/in/kameshkr258?trk=profile-badge'>Kamesh Rathore</a></div>
-			    </div> 
-			  </div>
-			  <div class="column">
-			    <div class="content">
 					<div id="github-card" data-username="kameshkr258"></div>
 			    </div>
 			  </div>
